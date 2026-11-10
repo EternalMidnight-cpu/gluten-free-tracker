@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Safe Plate: gluten-free restaurant tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Safe Plate</h1>
+    <p>Log where you ate, how safe it felt, and what to remember next time.</p>
+</header>
+
+<main>
+    <section class="panel">
+        <h2>Add a restaurant</h2>
+        <form id="restaurant-form">
+            <label>Name
+                <input type="text" id="name" required maxlength="80">
+            </label>
+            <label>City
+                <input type="text" id="city" maxlength="60">
+            </label>
+            <label>Safety rating
+                <select id="rating">
+                    <option value="5">5 - Felt completely safe</option>
+                    <option value="4">4 - Safe, minor concerns</option>
+                    <option value="3" selected>3 - Okay, ask questions</option>
+                    <option value="2">2 - Risky</option>
+                    <option value="1">1 - Avoid</option>
+                </select>
+            </label>
+            <label>Date visited
+                <input type="date" id="date">
+            </label>
+            <label class="check">
+                <input type="checkbox" id="dedicated">
+                Dedicated gluten-free kitchen
+            </label>
+            <label>Notes
+                <textarea id="notes" rows="3" maxlength="300" placeholder="Staff knowledge, safe dishes, cross-contamination worries"></textarea>
+            </label>
+            <button type="submit">Save restaurant</button>
+        </form>
+    </section>
+
+    <section class="panel">
+        <h2>Your restaurants</h2>
+        <div class="controls">
+            <input type="search" id="search" placeholder="Search by name or city">
+            <select id="filter">
+                <option value="0">All ratings</option>
+                <option value="4">4 and up</option>
+                <option value="3">3 and up</option>
+                <option value="2">2 and up</option>
+            </select>
+            <label class="check">
+                <input type="checkbox" id="dedicated-only">
+                Dedicated kitchens only
+            </label>
+        </div>
+        <p id="count" aria-live="polite"></p>
+        <ul id="list"></ul>
+    </section>
+</main>
+
+<footer>
+    A learning project, not medical advice. Always confirm with the restaurant.
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
